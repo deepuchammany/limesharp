@@ -31,3 +31,29 @@ function reformat($a)
         echo "Error - Incorrect Input";
     }
 }
+function next_binary_number($a)
+{
+
+    if ((is_array($a)) && (!empty($a))) {
+        //Check if the input is an array and not empty to continue
+        $length = count($a); //Counting the length of the binary number
+        $last   = $length - 1; //Calculating the last index of the array
+        for ($i = $last; $i >= 0; $i--) {
+            if ($a[$i] == 0) {
+                //Checking if the digit is 0
+                $a[$i]++;
+                break;
+            } else {
+                $a[$i] = 0;
+            }
+        }
+        if ($a[0] == 0) {
+            //Checking if the resultant array has a 0 in the first position
+            $temp = [1];
+            $a    = array_merge($temp, $a); //Adding a 1 to make the binary number complete
+        }
+        return $a;
+    } else {
+        echo "Error - Incorrect Input";
+    }
+}
