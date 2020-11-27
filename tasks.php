@@ -13,3 +13,21 @@ function repeat($a) //Function to repeat the array
         echo "Error - Incorrect Input";
     }
 }
+function reformat($a)
+{
+    if (is_string($a)) {
+        //Check if the input is a string to continue
+        $b      = strtolower($a); //Converting the string to lower case
+        $result = ""; //Result array declaration
+        for ($i = 0; $i < strlen($a); $i++) {
+            if (($b[$i] != 'a') && ($b[$i] != 'e') && ($b[$i] != 'i') && ($b[$i] != 'o') && ($b[$i] != 'u')) {
+                //Checking if the character is not a vowel to append it to the result string
+                $result = $result . $b[$i];
+            }
+        }
+        $result[0] = strtoupper($result[0]); //Converitng the first cahracter to upper case
+        return $result;
+    } else {
+        echo "Error - Incorrect Input";
+    }
+}
